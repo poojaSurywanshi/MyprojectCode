@@ -38,19 +38,19 @@ Expected Result: User should be successfully registered, and a confirmation emai
 	public static  void TC001_Validate(String username, String password) throws InterruptedException {
 
 		HomePage homePage = new HomePage();
-		UserRegistrationPage UserR_p=new UserRegistrationPage();	
+		
 
 		homePage.SignIn();
-		homePage.signIn_link();
-		Thread.sleep(2000);
+		homePage.signIn_link();	Thread.sleep(2000);
 		homePage.ShadowRootExample();
-		//*[@id="HJup0"]/div/label
 		Thread.sleep(2000);
-		UserR_p.Input_email(username);
-		UserR_p.Input_Password(password);
-		homePage.signIn_btn()
-;		Thread.sleep(1000);
+		homePage.Member();
+		Thread.sleep(2000);
+		homePage.Input_email(username);
+		homePage.Input_Password(password);
+		
+		homePage.signIn_btn();
+		Thread.sleep(1000);
 
 			}
 }
-
