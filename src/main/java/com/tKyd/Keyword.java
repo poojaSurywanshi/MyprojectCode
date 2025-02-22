@@ -1,9 +1,12 @@
 package com.tKyd;
+import org.apache.log4j.Logger;
 
 import java.time.Duration;
 import java.util.NoSuchElementException;
 
+import org.apache.log4j.LogManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -19,11 +22,15 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Errors.InvalidBrowserError;
+import io.cucumber.core.logging.Logger;
+import org.apache.log4j.Logger;
+import org.apache.log4j.Logger;
 
 public class Keyword {
+	
 	public static RemoteWebDriver driver=null;
 	public static FluentWait<WebDriver>wait=null;
-	public static WebDriverWait wait1;
+	private static final Logger LOG=Logger.getLogger(Keyword.class);
 	
 	public static void lunchBrowser(String browsername) {
 		if(browsername.equalsIgnoreCase("chrome")) {
@@ -40,17 +47,21 @@ public class Keyword {
              driver = new ChromeDriver(chromeOptions);
 			//driver=new ChromeDriver();
 			// driver.manage().window().maximize();
+             LOG.info("Luanched browser succfully");
 		}
 		else if (browsername.equalsIgnoreCase("firefox")) {
 			driver=new FirefoxDriver();
 			 driver.manage().window().maximize();
+			 LOG.info("Luanched browser succfully");
 		}
 		else if(browsername.equalsIgnoreCase("msedge")) {
 			driver=new EdgeDriver();
 			 driver.manage().window().maximize();
+			 LOG.info("Luanched browser succfully");
 		}else if(browsername.equalsIgnoreCase("safari")) {
 			driver=new SafariDriver();
 			 driver.manage().window().maximize();
+			 LOG.info("Luanched browser succfully");
 		}
 		else {
 			throw new InvalidBrowserError(browsername);

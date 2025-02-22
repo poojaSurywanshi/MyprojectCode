@@ -42,6 +42,8 @@ public class TC006 extends TestBase {
 		} else {
 			boolean productFound = false;
 			for (WebElement result : searchResults) {
+				
+				
 				String productText = result.getText();
 				System.out.println("Found Product: " + productText);
 

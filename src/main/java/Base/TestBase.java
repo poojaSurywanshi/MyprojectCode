@@ -20,7 +20,7 @@ public class TestBase {
 		
 	}
 
-	@AfterMethod(enabled = false)
+	@AfterMethod(enabled = true)
 	public void tearDown() {
 		Keyword.driver.quit();
 }

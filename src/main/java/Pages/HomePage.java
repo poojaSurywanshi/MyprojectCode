@@ -1,5 +1,7 @@
 package Pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -41,6 +43,9 @@ public class HomePage {
 
 	@FindBy(css="input[placeholder='Search']")
 	WebElement Search_bar;
+	
+	@FindBy(css="nav[class='navbar_navMain__6Fsll MuiBox-root mui-0'] a:nth-child(1)")
+	WebElement Beaty_icon;
 
 	public HomePage() {
 		PageFactory.initElements(Keyword.driver, this);
@@ -100,8 +105,13 @@ public class HomePage {
 	}
 
 	public void Search_bar() {
+		Search_icon.click();
 		Search_bar.sendKeys("Lip balm");
-		act.sendKeys(Keys.ENTER).perform();
+		List<WebElement> option1=(List<WebElement>) Keyword.driver.findElement(By.cssSelector("body > header > div > div > div.header_toolsLeft__B5HNO.MuiBox-root.mui-0 > div.header_searchpanelContainer__w8sCS.header_active__SC7eK.disableFocus > form > div.header_recentSearchsContainer__TquON > section"));
+		WebElement opt1=Keyword.driver.findElement(By.cssSelector(	"body > header > div > div > div.header_toolsLeft__B5HNO.MuiBox-root.mui-0 > div.header_searchpanelContainer__w8sCS.header_active__SC7eK.disableFocus > form > div.header_recentSearchsContainer__TquON > section > article > a:nth-child(1) > span"));
+		act.moveToElement(opt1).click()
+;		
+		//act.sendKeys(Keys.ENTER).perform();
 	}
 	public static void Input_email(String username) {
 		Input_email.sendKeys(username);
@@ -114,12 +124,7 @@ public class HomePage {
 		sign_btn.click();
 	}
 
-	public void ShadowRootExample() {
-		
-		Actions act=new Actions(Keyword.driver);
-		WebElement ele= Keyword.driver.findElement(By.xpath("(//div[@class='main-content'])[1]"));
-		act.moveToElement(ele).perform();
-		act.click();
-	}
+	
+	
 }
 

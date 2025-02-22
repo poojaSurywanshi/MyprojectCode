@@ -10,22 +10,24 @@ import org.testng.annotations.Test;
 import com.tKyd.Keyword;
 
 import Base.TestBase;
+import Pages.AddProductPage;
 import Pages.HomePage;
 import Pages.SignInPage;
 import Pages.WishlistPage;
 
-public
-
 class TC005_WishList extends TestBase{
 
+	
 	public  TC005_WishList() {
 		super();
 	}
-	@Test
-	public void tc_01() throws InterruptedException {
+	@Test(priority=1)
+	public void tc_CheckWishlist_isEmpty() throws InterruptedException {
+		
 		HomePage homepage=new HomePage();
 		WishlistPage wishlist=new WishlistPage();
-		homepage.validateHomePage();
+		AddProductPage addproduct=new AddProductPage();
+		
 		homepage.Wishlist_Icon();
 		Thread.sleep(2000);
 		
@@ -38,6 +40,45 @@ class TC005_WishList extends TestBase{
 			
 		}
 	}
+	
+	@Test(priority=2)
+	public void tc_AddTo_Wishlist() throws InterruptedException {
+		HomePage homepage=new HomePage();
+		WishlistPage wishlist=new WishlistPage();
+		AddProductPage addproduct=new AddProductPage();
+		
+		addproduct.ClickOnBanner();
+		addproduct.ClickProduct1(); 
+		wishlist.ClickOnsave_btn() ;
+		homepage.Wishlist_Icon();
+		Thread.sleep(1500);
+		if(addproduct.product1.isDisplayed()) {
+			System.out.println("Product is Displayed in Wishlist\n");
+		} else {
+			System.out.println("Product is Displayed in Wishlist"+"Wishlist is Not Empty\n");
+			
+		}
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
