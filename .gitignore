@@ -4,6 +4,10 @@
 # Log file
 *.log
 
+target/
+test-output/
+allure-results/
+
 # BlueJ files
 *.ctxt
 
