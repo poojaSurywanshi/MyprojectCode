@@ -1,4 +1,4 @@
-package com.keywordFWTestcase;
+package com.Testcases;
 
 import java.time.Duration;
 

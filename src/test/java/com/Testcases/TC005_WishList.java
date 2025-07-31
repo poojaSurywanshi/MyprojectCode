@@ -1,4 +1,4 @@
-package com.keywordFWTestcase;
+package com.Testcases;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

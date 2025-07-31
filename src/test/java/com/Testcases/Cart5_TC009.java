@@ -1,4 +1,4 @@
-package com.keywordFWTestcase;
+package com.Testcases;
 import org.testng.Assert;
 import java.time.Duration;
 import java.util.List;

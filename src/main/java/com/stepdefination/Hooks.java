@@ -1,31 +1,33 @@
 package com.stepdefination;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
-import com.tKyd.Keyword;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
+import com.tKyd.*;
 
 public class Hooks {
 
-	private static final
-	
-	Logger LOG = Logger.getLogger(Hooks.class);
-
+	private static final Logger logger = LogManager.getLogger(Hooks.class);
 	RemoteWebDriver driver;
 	ThreadLocal<RemoteWebDriver> thread = new ThreadLocal<RemoteWebDriver>();
+	Keyword keyword = new Keyword();
 	@Before
 	public void setUp() throws Exception {
-		Keyword keyword = new Keyword();
-		 keyword.lunchBrowser("chrome");
-		keyword.luanchUrl("https://www.yesstyle.com/en/");
-		LOG.info("Launched  url");
+
+		keyword.launchBrowser("chrome");
+		thread.set(driver);
+		keyword.luanchUrl();
+		logger.info("Launched QA env url");
 	}
 
 	@After
 	public void tearDown() throws Exception {
-		Keyword.driver.quit();
+		keyword.driver.quit();
+		//thread.get().close();
+		//thread.remove();
 	}
 }

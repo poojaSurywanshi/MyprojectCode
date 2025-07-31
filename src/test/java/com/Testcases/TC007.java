@@ -1,4 +1,4 @@
-package com.keywordFWTestcase;
+package com.Testcases;
 
 import java.util.List;
 
@@ -10,30 +10,29 @@ import com.tKyd.Keyword;
 
 import Base.TestBase;
 import Pages.HomePage;
-
 /*
- * 3. Product Search
-Test Case ID: TC006
-Title: Validate product search with a valid product name.
+ * 
+Test Case ID: TC007
+Title: Validate search with no results.
 Steps:
-Enter a valid product name in the search bar.
+Enter a non-existing product name in the search bar.
 Click the "Search" button.
-Expected Result: Relevant product results should display.
+Expected Result: A message should display, stating "No products found."
 
  */
-public class TC006 extends TestBase {
-
-	public TC006() {
+public class TC007 extends TestBase {
+	
+	public TC007() {
 		super();
 	}
 	@Test
-	public void validate_search() throws InterruptedException {
+	public void validat_search() throws InterruptedException {
 		HomePage homepage=new HomePage();
 		homepage.Search_icon();
 		homepage.Search_bar();
 		Thread.sleep(5000);
 		//System.out.println("Relevant product results displayed.");
-		String productName="lip balm";
+		String productName="car";
 		List<WebElement> searchResults = Keyword.driver.findElements(By.cssSelector(".productList.cardList.flex-grow.layout-row.layout-wrap.ng-scope"));
 
 		
@@ -42,8 +41,6 @@ public class TC006 extends TestBase {
 		} else {
 			boolean productFound = false;
 			for (WebElement result : searchResults) {
-				
-				
 				String productText = result.getText();
 				System.out.println("Found Product: " + productText);
 

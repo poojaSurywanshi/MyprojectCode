@@ -1,5 +1,14 @@
 package com.stepdefination;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
+import com.tKyd.*;
+
 import java.util.List;
 
 import org.testng.Assert;
@@ -18,15 +27,15 @@ import io.cucumber.java.en.When;
 import org.apache.log4j.Logger;
 public class WishlistSteps {
 
-	private static final Logger LOG = Logger.getLogger(Hooks.class);
+	private static final Logger LOG = LogManager.getLogger(WishlistSteps.class);
 
 @Given("Application url is luanched")
 public void luanAppUrl() {
 LOG.info("Website Luanched Succesfully");
 }
 
-@When("the user searches for {string} and clicks on {string}")
-public void the_user_searches_for_and_clicks_on(String string, String string2) throws InterruptedException {
+@When("the user searches for product and clicks on Add to Wishlist")
+public void the_user_searches_for_and_clicks_on_Add_to_Wishlist() throws InterruptedException {
 	HomePage homepage=new HomePage();
 	Pages.WishlistPage wishlist=new Pages.WishlistPage();
 	AddProductPage addproduct=new AddProductPage();
