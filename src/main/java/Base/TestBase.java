@@ -27,7 +27,7 @@ public class TestBase {
 	public void setup() {
 	
 		keyword.launchBrowser("chrome");
-		keyword.luanchUrl();
+		
 		
 	}
 
