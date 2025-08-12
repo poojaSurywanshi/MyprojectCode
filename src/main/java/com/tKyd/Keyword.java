@@ -94,10 +94,7 @@ public class Keyword{
 			driver.findElement(By.xpath(locator)).sendKeys(textToEnter);
 		}
 		
-	    public WebElement waitForElementToBeVisible(WebElement element) {
-
-			return wait.until(ExpectedConditions.visibilityOf(element));
-		}
+	    
 	    public void SendkeyMethod(String Locator,String input) {
 			driver.findElement(By.cssSelector(Locator)).sendKeys(input);
 		}

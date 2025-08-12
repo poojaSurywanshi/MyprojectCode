@@ -12,6 +12,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import com.tKyd.Keyword;
 
@@ -28,7 +30,7 @@ public class dummyclass {
 
 		WebDriver driver=new ChromeDriver(chromeOptions);
 	
-	driver.get("https://www.yesstyle.com/en");
+	//driver.get("https://www.yesstyle.com/en");
 	Thread.sleep(2000);
 //	JavascriptExecutor js=(JavascriptExecutor)driver;
 //	js.executeScript("window.scrollBy(0,300");
@@ -37,16 +39,17 @@ public class dummyclass {
 //element.click()
 //;
 //	
-String Actual_title=driver.getTitle();
-System.out.println(Actual_title);
+//String Actual_title=driver.getTitle();
+//System.out.println(Actual_title);
+//
+//String Expectd_title="Beauty,Skin Care, and Health and Wellness | YesStyle";
+//
+//assertEquals(Actual_title,Expectd_title,"Homepag title is InCorrect as it is mentioned");	
 
-String Expectd_title="Beauty,Skin Care, and Health and Wellness | YesStyle";
+    driver.get("https://www.yesstyle.com/en/beauty-makeup/list.html/bcc.15479_bpt.46");
+    WebElement Product1=driver.findElement(By.cssSelector("img[src='https://d1flfk77wl2xk4.cloudfront.net/Assets/49/215/M_p0114021549.jpg']"));
+Product1.click();    
 
-assertEquals(Actual_title,Expectd_title,"Homepag title is InCorrect as it is mentioned");	
-	
-	
-
-		driver.close();
 	
 	
 	

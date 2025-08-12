@@ -28,7 +28,7 @@ import io.cucumber.java.en.When;
 
 public class HomepageSteps {
 	private static final Logger LOG = LogManager.getLogger(WishlistSteps.class);
-	WebDriverWait wait=null;
+	WebDriverWait wait;
 	Keyword keyword;
 	HomePage homepage =new HomePage();
 	Actions actions = new Actions(keyword.driver);
