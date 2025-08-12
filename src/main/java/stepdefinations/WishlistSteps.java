@@ -35,7 +35,7 @@ public class WishlistSteps {
 	
 	@Given("open url")
 	public void open_url() {
-		Keyword.luanchUrl();
+		keyword.luanchUrl();
 		keyword.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		LOG.info("Lunched URL Succsfully");
 	}

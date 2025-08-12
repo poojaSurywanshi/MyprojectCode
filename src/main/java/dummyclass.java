@@ -1,7 +1,11 @@
 
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
 import java.util.List;
 
+import org.checkerframework.checker.units.qual.s;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -32,9 +36,22 @@ public class dummyclass {
 //    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
 //element.click()
 //;
-	driver.findElements(By.cssSelector("a[aria-label='wish list']"));
-	List <WebElement> Ws_list=driver.findElements(By.xpath("//div[@class='productList ysColumnGrid layout-padding']"));
-	 System.out.println("**Produxts present in Wishist**"+Ws_list);
+//	
+String Actual_title=driver.getTitle();
+System.out.println(Actual_title);
 
-}
+String Expectd_title="Beauty,Skin Care, and Health and Wellness | YesStyle";
+
+assertEquals(Actual_title,Expectd_title,"Homepag title is InCorrect as it is mentioned");	
+	
+	
+
+		driver.close();
+	
+	
+	
+	
+	}
+
+	
 }

@@ -2,7 +2,6 @@ package com.tKyd;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 
-import org.apache.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,7 +19,6 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Errors.InvalidBrowserError;
-import Keyword.Keyword;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 import org.apache.logging.log4j.LogManager;
@@ -31,6 +29,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import com.tKyd.*;
+
 
 
 public class Keyword{
@@ -51,6 +50,8 @@ public class Keyword{
 	                ChromeOptions chromeOptions = new ChromeOptions();
 	                chromeOptions.addArguments("--start-maximized");
 	                chromeOptions.addArguments("--disable-notifications");
+	                chromeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+	                chromeOptions.setExperimentalOption("useAutomationExtension", false);
 	                driver = new ChromeDriver(chromeOptions);
 	                break;
 	                

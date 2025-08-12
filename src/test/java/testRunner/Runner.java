@@ -10,14 +10,14 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 
-@CucumberOptions(features = "C:\\Users\\LENOVO\\eclipse-workspace\\com.Hybrid_Framework\\src\\test\\resources\\Features\\Wishlist.feature", 
-glue = "stepdefinations", 
+@CucumberOptions(features = "C:\\Users\\LENOVO\\eclipse-workspace\\com.Hybrid_Framework\\src\\test\\resources\\Features\\Product_Details.feature", 
+glue = {"stepdefinations", "Hooks"},
+tags = "@smoke and not @skip",
 dryRun = false,
 plugin = {
 		"pretty",
-"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm" },
-tags = "not @skip"
-		)
+"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm" }
+)
 
 public class Runner extends AbstractTestNGCucumberTests {
 	// This class serves as an entry point for the test execution

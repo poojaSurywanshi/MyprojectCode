@@ -23,8 +23,7 @@ public class Hooks {
 		keyword.luanchUrl();
 		logger.info("Launched QA env url");
 	}
-
-	@After
+@After
 	public void tearDown() throws Exception {
 		keyword.driver.quit();
 		//thread.get().close();
