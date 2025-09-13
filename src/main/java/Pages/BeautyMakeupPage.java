@@ -21,8 +21,9 @@ public class BeautyMakeupPage {
 		PageFactory.initElements(Keyword.driver, this);
 	}
 	
-	@FindBy(css="img[src='https://d1flfk77wl2xk4.cloudfront.net/Assets/49/215/M_p0114021549.jpg']")
+	@FindBy(xpath="(//img[@class='MuiBox-root mui-wb2vxn'])[3]")
 	public WebElement Product1;
 	
-	
+	@FindBy(css=".discountGrid_grid-img__MSsW4[src='/_next/image?url=https://ddvql06zg3s2o.cloudfront.net/Assets/res/imgs/creative/25wk37/pb_skin1004.jpg&w=640&q=80']")
+	public WebElement Productcatagori1;
 }

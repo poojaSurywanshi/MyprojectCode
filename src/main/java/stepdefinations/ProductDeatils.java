@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import com.tKyd.Keyword;
 
@@ -31,15 +32,20 @@ public class ProductDeatils extends Waitutils {
 
 	@When("I click on a product")
 	public void i_click_on_a_product() {
+		BMP.Productcatagori1.click();
 	    BMP.Product1.click();
 	    waitUtils.waitForPageLoad();
 	}
 
 	@Then("I should be redirected to the product details page")
 	public void i_should_be_redirected_to_the_product_details_page() {
-		wait.until(ExpectedConditions.urlContains("//beauty-makeup/list.html/bcc.15479_bpt.46"));
-		assertTrue("Not redirected to Expected page", 
-		keyword.driver.getCurrentUrl().contains("/beauty-makeup/list.html/bcc.15479_bpt.46"));
+//		wait.until(ExpectedConditions.urlContains("https://www.yesstyle.com/en/skin-1004/list.html/bpt.299_bid.321173?sb=165"));
+//		assertTrue("Not redirected to Expected page", 
+//		keyword.driver.getCurrentUrl().contains("https://www.yesstyle.com/en/skin-1004/list.html/bpt.299_bid.321173?sb=165"));
+		 String actualUrl = driver.getCurrentUrl();
+		 String expectedUrl= " ";
+	        Assert.assertEquals(actualUrl, expectedUrl, "Redirection failed!");
+	
 	}
 
 	@And("I should see the product title, price, and description")
